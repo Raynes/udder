@@ -1,4 +1,4 @@
-function parseUtterance(utterance) {
+export default function parseUtterance(utterance) {
   let output = [];
 
   for (var i = 0; i < utterance.length; ++i) {
