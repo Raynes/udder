@@ -2,7 +2,6 @@ function parseUtterance(utterance) {
   let output = [];
 
   for (var i = 0; i < utterance.length; ++i) {
-    console.log('lookin at', utterance.slice(i));
     if (utterance[i] == '{') {
       let [expanded, pos] = parseSlot(utterance, i + 1);
       output.push(expanded);
@@ -48,7 +47,7 @@ function explode(flat) {
       break;
 
     default:
-      throw 'dude what is this ';
+      throw 'WHAT. Got ${part.type}, no clue what to do.';
     }
   });
 
@@ -87,18 +86,27 @@ function parseSlot(utterance, position) {
       [slotType, pos] = parseText(utterance, i + 1);
 
       if (utterance[pos] !== '}') {
-        throw 'dude come on man' + pos;
+        syntaxError(utterance, pos, 'no closing brace for slot');
       }
 
       return [{type: "slot", choices: slotChoices, slotType: slotType}, pos];
     default:
-      throw 'oh god what did you do';
+      syntaxError(utterance, pos, 'unexpected input');
     }
   }
 
-  throw `no closing brace for slot starting at ${position} in "${utterance}"`;
+  syntaxError(utterance, position, "no closing brace for slot");
 }
 
+
+function syntaxError(utterance, position, message) {
+  console.log('Syntax Error:', message);
+  console.log(utterance);
+  let marker = "";
+  for (var i = 0; i < position - 1; ++i) marker += "~";
+  console.log(marker + '^');
+  throw 'syntax error';
+}
 
 function testParser(utterance) {
   console.log(`Utterance: ${utterance}`);
