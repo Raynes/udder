@@ -1,12 +1,12 @@
 var assert = require("assert");
-var udder = require("../lib/udder.js");
 var fs = require("fs");
+var udder = require('../lib/udder')
 
 describe("udder", function() {
     describe("#parseUtterances()", function() {
         it('should parse yams utterances', function() {
-          var utterancesRaw = fs.readFileSync("tests/utterances.txt").toString();
-          var correctUtterances = fs.readFileSync("tests/correct-utterances.txt").toString()
+          var utterancesRaw = fs.readFileSync("test/utterances.txt").toString();
+          var correctUtterances = fs.readFileSync("test/correct-utterances.txt").toString()
           var utterances = udder(utterancesRaw);
           assert.equal(utterances, correctUtterances);
         });
