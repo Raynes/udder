@@ -107,12 +107,3 @@ function syntaxError(utterance, position, message) {
   console.log(marker + '^');
   throw 'syntax error';
 }
-
-function testParser(utterance) {
-  console.log(`Utterance: ${utterance}`);
-  console.log(JSON.stringify(parseUtterance(utterance)));
-  console.log("\n\n");
-}
-
-
-testParser("{hi,hello} there {foo,bar,baz,quux|Bar}");
