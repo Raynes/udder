@@ -2,11 +2,15 @@
   "name": "udder",
   "version": "0.1.0",
   "description": "Sample utterance generator for Amazon Echo apps",
+  "main": "lib/udder.js",
   "repository": {
     "type": "git",
     "url": "https://github.com/Raynes/udder.git"
   },
-  "author": "Anthony Grimes",
+  "contributors": [
+    "Anthony Grimes",
+    "Erik Price"
+  ],
   "license": "MIT",
   "bugs": {
     "url": "https://github.com/Raynes/udder/issues"
@@ -17,6 +21,10 @@
   },
   "devDependencies": {
     "gulp": "^3.9.0",
-    "gulp-babel": "^5.2.1"
+    "gulp-babel": "^5.2.1",
+    "mocha": "^2.3.2"
+  },
+  "scripts": {
+    "test": "gulp && mocha"
   }
 }
