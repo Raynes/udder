@@ -1,7 +1,13 @@
+/**
+ * Exposed high level library functions!
+ */
 import "babel-core/polyfill";
 import parseUtterance from "./parser";
 import fs from "fs";
 
+/**
+ * Parse templated utterances from a string.
+ */
 export default function parseUtterances(utterances) {
   let lines = utterances.split('\n');
   let result = "";
