@@ -2,10 +2,11 @@ SetVolume turn it {up,down|Direction}
 SetVolume turn {up,down|Direction}
 SetVolume turn it {up,down|Direction} a lot
 SetVolume turn it {up,down|Direction} a bunch
-SetInput switch to {H. D. M. I.|Input} {one,two,three,four,five|Number}
-SetInput switch to {A. V.|Input} {one,two,three,four,five,six|Number}
+SetInput switch to {H. D. M. I.|Input} {1…5|Number}
+SetInput switch to {A. V.|Input} {…6|Number}
 SetInput switch to {U. S. B.|Input}
-SetInput switch to {Audio|Input} {one,two|Number}
+SetInput switch to {Audio|Input} {1…2,three|Number}
+SetInput switch to {Audio|Input} {four,5…6|Number}
 SetInput switch to {Tuner|Input}
 SetInput switch to {Video Aux|Input}
 SetPowerState turn {on|State}
