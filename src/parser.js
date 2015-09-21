@@ -88,18 +88,19 @@ function parseRange(utterance, leftSide, pos) {
 
   if (!rightSide.length) {
     syntaxError(utterance, pos, "end of range required");
-  } else {
-    rightSide = Number.parseInt(rightSide);
-    if (!rightSide) {
-      syntaxError(utterance, pos, "not a number");
-    } else {
-      for (var start = leftSide; start <= rightSide; start++) {
-        choices.push(toSpoken(start));
-      }
-
-      return [choices, pos - 1];
-    }
   }
+
+  rightSide = Number.parseInt(rightSide);
+
+  if (!rightSide) {
+    syntaxError(utterance, pos, "not a number");
+  }
+
+  for (var start = leftSide; start <= rightSide; start++) {
+    choices.push(toSpoken(start));
+  }
+
+  return [choices, pos - 1];
 }
 
 function parseSlot(utterance, position) {
