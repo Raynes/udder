@@ -12,7 +12,7 @@ Eventually I'd like to support generating intents/lambda functions as well.
 $ npm install -g udder
 ```
 
-Right udder supports generating utterance. More features to follow!
+Right udder supports generating utterances. More features to follow!
 
 ### Utterances
 
@@ -23,10 +23,10 @@ SetVolume turn it {up,down|Direction}
 SetVolume turn {up,down|Direction}
 SetVolume turn it {up,down|Direction} a lot
 SetVolume turn it {up,down|Direction} a bunch
-SetInput switch to {H. D. M. I.|Input} {one,two,three,four,five|Number}
-SetInput switch to {A. V.|Input} {one,two,three,four,five,six|Number}
+SetInput switch to {H. D. M. I.|Input} {1…5|Number}
+SetInput switch to {A. V.|Input} {1…6|Number}
 SetInput switch to {U. S. B.|Input}
-SetInput switch to {Audio|Input} {one,two|Number}
+SetInput switch to {Audio|Input} {1…2|Number}
 SetInput switch to {Tuner|Input}
 SetInput switch to {Video Aux|Input}
 SetPowerState turn {on|State}
@@ -35,8 +35,15 @@ SetPowerState power {on|State}
 SetPowerState power {off|State}
 ```
 
-Let's run the generator on it:
+Note the numeric ranges denoted by ellipses (`…`). These templates will
+generate one line per number inclusively within the range.
 
+**Make sure you use an actual ellipsis character and not three periods.**
+
+Mac: `⌥;`
+Linux: Compose + ...
+
+Let's run the generator on it:
 
 ```
 $ udder utterances path/to/utterances.txt
