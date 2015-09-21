@@ -1,6 +1,6 @@
 {
   "name": "udder",
-  "version": "0.1.0",
+  "version": "0.2.0",
   "description": "Sample utterance generator for Amazon Echo apps",
   "main": "lib/udder.js",
   "bin": "./lib/cli.js",
