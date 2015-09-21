@@ -19,6 +19,7 @@
   "homepage": "https://github.com/Raynes/udder",
   "dependencies": {
     "babel-core": "^5.8.22",
+    "spoken-numbers": "0.0.4",
     "yargs": "^3.25.0"
   },
   "devDependencies": {

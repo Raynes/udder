@@ -11,6 +11,7 @@ SetInput switch to {H. D. M. I.|Input} {two|Number}
 SetInput switch to {H. D. M. I.|Input} {three|Number}
 SetInput switch to {H. D. M. I.|Input} {four|Number}
 SetInput switch to {H. D. M. I.|Input} {five|Number}
+SetInput switch to {A. V.|Input} {zero|Number}
 SetInput switch to {A. V.|Input} {one|Number}
 SetInput switch to {A. V.|Input} {two|Number}
 SetInput switch to {A. V.|Input} {three|Number}
@@ -20,6 +21,10 @@ SetInput switch to {A. V.|Input} {six|Number}
 SetInput switch to {U. S. B.|Input}
 SetInput switch to {Audio|Input} {one|Number}
 SetInput switch to {Audio|Input} {two|Number}
+SetInput switch to {Audio|Input} {three|Number}
+SetInput switch to {Audio|Input} {four|Number}
+SetInput switch to {Audio|Input} {five|Number}
+SetInput switch to {Audio|Input} {six|Number}
 SetInput switch to {Tuner|Input}
 SetInput switch to {Video Aux|Input}
 SetPowerState turn {on|State}
