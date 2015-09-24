@@ -1,10 +1,10 @@
-#!/usr/bin/env node
+#!/usr/bin/env node --harmony --harmony_destructuring
+'use strict';
 
-import "babel-core/polyfill";
-import fs from "fs";
-import udder from "./udder";
+let fs = require("fs");
+let udder = require("./udder");
 
-var helpDoc = `
+let helpDoc = `
 udder <command>
 
 A boilerplate generator for Alexa programs!`
