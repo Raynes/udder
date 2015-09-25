@@ -6,6 +6,10 @@ based on the original Amazon format.
 
 Eventually I'd like to support generating intents/lambda functions as well.
 
+## Node versions
+
+I only support node 4.1.1+. I want ES6 and lots of it.
+
 ## Usage
 
 ```

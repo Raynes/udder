@@ -1,6 +1,8 @@
+'use strict';
+
 var assert = require("assert");
 var fs = require("fs");
-var udder = require('../lib/udder')
+var udder = require('../src/udder').parseUtterances
 
 describe("udder", function() {
   describe("#parseUtterances()", function() {

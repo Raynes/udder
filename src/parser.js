@@ -1,6 +1,8 @@
-import {toSpoken} from "spoken-numbers";
+'use strict';
 
-export default function parseUtterance(utterance) {
+let toSpoken = require('spoken-numbers').toSpoken
+
+function parseUtterance(utterance) {
   let output = [];
 
   for (var i = 0; i < utterance.length; ++i) {
@@ -84,28 +86,27 @@ function parseRange(utterance, leftSide, pos) {
     }
   }
 
-  [rightSide, pos] = parseText(utterance, pos);
+  let [newRight, newPos] = parseText(utterance, pos);
 
-  if (!rightSide.length) {
-    syntaxError(utterance, pos, "end of range required");
+  if (!newRight.length) {
+    syntaxError(utterance, newPos, "end of range required");
   }
 
-  rightSide = Number.parseInt(rightSide);
+  newRight = Number.parseInt(newRight);
 
-  if (!rightSide) {
-    syntaxError(utterance, pos, "not a number");
+  if (!newRight) {
+    syntaxError(utterance, newPos, "not a number");
   }
 
-  for (var start = leftSide; start <= rightSide; start++) {
+  for (var start = leftSide; start <= newRight; start++) {
     choices.push(toSpoken(start));
   }
 
-  return [choices, pos - 1];
+  return [choices, newPos - 1];
 }
 
 function parseSlot(utterance, position) {
   let slotChoices = [];
-  let slotType;
 
   for(var i = position; i < utterance.length; ++i) {
     let [text, pos] = parseText(utterance, i);
@@ -117,18 +118,24 @@ function parseSlot(utterance, position) {
       case '}':
         return [{type: "slot", choices: slotChoices, slotType: slotType}, i];
       case '…':
-        let choices;
-        [choices, i] = parseRange(utterance, slotChoices.pop(), i + 1);
+        let [choices, newIx] = parseRange(utterance, slotChoices.pop(), i + 1);
+        i = newIx;
         slotChoices = slotChoices.concat(choices);
         break;
       case '|':
-        [slotType, pos] = parseText(utterance, i + 1);
+        let [slotType, newPos] = parseText(utterance, i + 1);
 
-        if (utterance[pos] !== '}') {
-          syntaxError(utterance, pos, 'no closing brace for slot');
+        if (utterance[newPos] !== '}') {
+          syntaxError(utterance, newPos, 'no closing brace for slot');
         }
 
-        return [{type: "slot", choices: slotChoices, slotType: slotType}, pos];
+        return [
+          {
+            type: "slot",
+            choices: slotChoices,
+            slotType: slotType
+          },
+          newPos];
       default:
         syntaxError(utterance, pos, 'unexpected input');
       }
@@ -146,3 +153,5 @@ function syntaxError(utterance, position, message) {
   console.log(marker + '^');
   throw 'syntax error';
 }
+
+module.exports.parseUtterance = parseUtterance;

@@ -3,9 +3,6 @@
     "node": true,
     "es6": true
   },
-  "ecmaFeatures": {
-    "modules": true
-  },
   "rules": {
     "quotes": 0
   }

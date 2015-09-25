@@ -1,14 +1,15 @@
+'use strict';
+
 /**
  * Exposed high level library functions!
  */
-import "babel-core/polyfill";
-import parseUtterance from "./parser";
-import fs from "fs";
+let parseUtterance = require("./parser").parseUtterance;
+let fs = require("fs");
 
 /**
  * Parse templated utterances from a string.
  */
-export default function parseUtterances(utterances) {
+module.exports.parseUtterances = function parseUtterances(utterances) {
   let lines = utterances.split('\n');
   let result = "";
   let generated = lines
