@@ -1,4 +1,13 @@
-# Udder
+# [DEPRECATED] Udder
+
+## Deprection
+
+As we expected, Amazon is slowly building out tools to make this stuff easier and
+they have effectively replaced udder with custom slot types. It's missing a few
+things we have, but I expect that if they're putting this much effort into it,
+it's not far off.
+
+## Intro
 
 Udder is a tool for generating boilerplate for Amazon Echo apps. Right now,
 it supports generating utterances from a slightly extended template format
